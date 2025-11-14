@@ -1,0 +1,183 @@
+:root {
+    --main-color: #035dbd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+    background: #f7f7f7;
+    padding: 20px;
+    direction: rtl;
+}
+
+
+h1,
+h2 {
+    color: var(--main-color);
+    text-align: center;
+}
+
+h3,
+strong {
+    color: var(--main-color);
+    margin-bottom: 1px;
+    font-size: 22px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container>h2 {
+    text-align: center;
+    color: var(--main-color);
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* لإخفاء منطقة الطباعة أثناء تعبئة النموذج */
+#printArea {
+    display: none;
+    background: #f7f7f7;
+    position: relative;
+}
+
+#printArea #headPrint {
+    display: flex;
+    gap: 20%
+}
+
+#printArea>h1 {
+    margin-top: -10px;
+}
+
+#printArea>img {
+    width: 300px;
+    position: absolute;
+    top: -100px;
+    left: 0;
+}
+
+#printArea #driverData,
+#printArea #carData {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#printArea span {
+    color: black;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+#printArea p {
+    margin-block: 8px;
+}
+
+#driverData>p:not(:nth-of-type(2)) {
+    width: 65%;
+}
+
+#carData p {
+    width: 50%;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    /* border-collapse: collapse; */
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+}
+
+th,
+td {
+    border: 1px solid var(--main-color);
+    padding: 10px 15px;
+    text-align: center;
+}
+
+th {
+    color: var(--main-color);
+}
+
+tr:nth-child(even) {
+    background-color: #eef5ff;
+}
+
+tfoot td {
+    font-weight: bold;
+    background-color: #d6e9ff;
+}
+
+
+.printFooter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--main-color);
+    position: relative;
+    padding-top: 15px;
+}
+
+.printFooter>img {
+    position: absolute;
+    width: 150px;
+    top: -60px;
+    left: 100px;
+}
+
+
+/* تنسيق خاص للطباعة */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printArea {
+        background: red;
+    }
+
+    #printArea,
+    #printArea * {
+        visibility: visible;
+
+    }
+
+    #printArea {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+}

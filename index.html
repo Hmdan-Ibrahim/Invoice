@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>طباعة البيانات كملف PDF</title>
+
+</head>
+
+<body>
+
+    <div class="container" id="formContainer">
+        <h2>نموذج فاتورة</h2>
+        <form id="dataForm">
+            <label>التاريخ</label>
+            <input type="date" id="date">
+
+            <label>المدينة المتجه إليها البضاعة:</label>
+            <input type="text" id="city" required />
+
+            <h2>بيانات السائق:</h2>
+            <label>اسم السائق:</label>
+            <input type="text" id="driver" required />
+
+            <label>جنسيته:</label>
+            <input type="text" id="national" required />
+
+            <label>إقامة رقم:</label>
+            <input type="text" id="residenceNumber" required />
+
+            <label>جوال السائق:</label>
+            <input type="text" id="phone" />
+
+            <h2>بيانات السيارة:</h2>
+            <label>رقم اللوحة:</label>
+            <input type="text" id="plateNumber" required />
+
+            <label>الماركة والموديل:</label>
+            <input type="text" id="carBrand" required />
+
+            <label>الحمولة الاجمالية:</label>
+            <input type="text" id="totalPayload" required />
+
+            <label>الحمولة الصافية:</label>
+            <input type="text" id="currentPayload" required />
+
+            <h2>بيانات البضاعة:</h2>
+            <label>اسم المرسل:</label>
+            <input type="text" id="sender" required />
+            <label>اسم المستلم:</label>
+            <input type="text" id="receiver" required />
+            <label>نوع البضاعة:</label>
+            <input type="text" id="comssDees" required />
+
+            <button type="submit">عرض و طباعة</button>
+        </form>
+    </div>
+
+    <!-- منطقة الطباعة -->
+    <div id="printArea" class="conainer">
+        <div id="headPrint">
+            <h2>مؤسسة فهد منصور ناعم الضويحي <br>لتنجيد الأثاث<br>س.ت: 3400120233 <br>جوال: 0539391306</h2>
+            <h2>التاريخ: <span id="printDate"></span></h2>
+        </div>
+        <h1>فاتورة</h1>
+        <img src="./a52b57c1-a1f1-42ec-a10a-6ac25295417f.png" width="100" alt="invoice">
+        <div>
+            <p><strong>المدينة المتجه إليها البضاعة:</strong> <span id="printCity"></span></p>
+            <h3>بيانات السائق</h3>
+            <div id="driverData">
+                <p><strong>إسم السائق:</strong> <span id="printDriver"></span></p>
+                <p><strong>جنسيته:</strong> <span id="printNational"></span></p>
+                <p><strong>إقامة رقم:</strong> <span id="printResidenceNumber"></span></p>
+                <p><strong>جوال السائق:</strong> <span id="printPhone"></span></p>
+            </div>
+            <h3>بيانات السيارة</h3>
+            <div id="carData">
+                <p><strong>رقم اللوحة:</strong> <span id="printPlateNumber"></span></p>
+                <p><strong>الماركة والموديل:</strong> <span id="printCarBrand"></span></p>
+                <p><strong>الحمولة الاجمالية:</strong> <span id="printTotalPayload"></span></p>
+                <p><strong>الحمولة الصافية:</strong> <span id="printCurrentPayload"></span></p>
+            </div>
+        </div>
+        <table>
+            <caption>
+                <h1>بيانات البضاعة</h1>
+            </caption>
+            <thead>
+                <tr>
+                    <th>المرسل .Fer /Ms</th>
+                    <th>المرسل اليه Consigenn</th>
+                    <th rowspan="2">نوع البضاعة <br>Comss.Dees</th>
+                </tr>
+                <tr>
+                    <th>الإسم Sender</th>
+                    <th>المستلم Receiver</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td id="printSender"></td>
+                    <td id="printReceiver"></td>
+                    <td id="printComssDees"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="printFooter">
+            <p>توقيع المستلم:............................. Receiver Sign</p>
+            <img src="./Signature.png" alt="sig">
+            <p>توقيع السائق:............................. Driver Sign</p>
+        </div>
+    </div>
+
+    <script src="./main.js"> </script>
+
+</body>
+
+</html>
