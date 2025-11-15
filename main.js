@@ -44,10 +44,11 @@ form.addEventListener("submit", function (e) {
     printArea.style.display = "block";
 
     // فتح نافذة الطباعة (المستخدم يمكنه اختيار "حفظ كملف PDF")
-    window.print();
+       setTimeout(() => {
+        window.print();
 
-    // بعد الطباعة، العودة للنموذج
-    formContainer.style.display = "block";
-    printArea.style.display = "none";
-    form.reset();
+        formContainer.style.display = "block";
+        printArea.style.display = "none";
+        // form.reset();
+    }, 500); // ← 500ms مناسب للموبايل
 });
