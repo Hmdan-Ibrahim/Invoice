@@ -161,14 +161,11 @@ tfoot td {
 
 /* تنسيق خاص للطباعة */
 @media print {
-    body * {
+    body #formContainer {
         visibility: hidden;
+        display: none;
     }
-
-    #printArea {
-        background: red;
-    }
-
+    
     #printArea,
     #printArea * {
         visibility: visible;
